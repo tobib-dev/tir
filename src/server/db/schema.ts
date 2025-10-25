@@ -2,6 +2,7 @@
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
 import { sql } from "drizzle-orm";
+import { uuid, varchar, timestamp } from "drizzle-orm/pg-core";
 import { index, pgTableCreator } from "drizzle-orm/pg-core";
 
 /**
@@ -12,16 +13,23 @@ import { index, pgTableCreator } from "drizzle-orm/pg-core";
  */
 export const createTable = pgTableCreator((name) => `tir_${name}`);
 
-export const posts = createTable(
-  "post",
-  (d) => ({
-    id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
-    name: d.varchar({ length: 256 }),
-    createdAt: d
-      .timestamp({ withTimezone: true })
+export const games = createTable(
+  "game",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: varchar("name", { length: 256 }).notNull(),
+    createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: d.timestamp({ withTimezone: true }).$onUpdate(() => new Date()),
+    updatedAt: timestamp("updated_at").$onUpdate(() => new Date()),
+    startTime: timestamp("start_time").notNull(),
+    location: varchar("location", { length: 256 }).notNull(),
+    homeTeam: varchar("home_team", { length: 256 }).notNull(),
+    visitingTeam: varchar("visiting_team", { length: 256 }).notNull(),
+    homeScore: varchar("home_score", { length: 256 }),
+    visitingScore: varchar("visiting_score", { length: 256 }),
+  },
+  (ex) => ({
+    nameIndex: index("name_idx").on(ex.name),
   }),
-  (t) => [index("name_idx").on(t.name)],
 );
