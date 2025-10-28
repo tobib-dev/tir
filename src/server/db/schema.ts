@@ -2,8 +2,13 @@
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
 import { sql } from "drizzle-orm";
-import { uuid, varchar, timestamp } from "drizzle-orm/pg-core";
-import { index, pgTableCreator } from "drizzle-orm/pg-core";
+import {
+  index,
+  pgTableCreator,
+  uuid,
+  varchar,
+  timestamp,
+} from "drizzle-orm/pg-core";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -33,3 +38,5 @@ export const games = createTable(
     nameIndex: index("name_idx").on(ex.name),
   }),
 );
+
+export type NewGame = typeof games.$inferInsert;
