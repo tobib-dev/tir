@@ -1,11 +1,11 @@
 {
-  "id": "d7c3d931-cb2b-45eb-a84e-bc005157fa78",
+  "id": "7650fa66-0941-4407-9f24-458940b714f6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "public.tir_games": {
-      "name": "tir_games",
+    "public.tir_game": {
+      "name": "tir_game",
       "schema": "",
       "columns": {
         "id": {
@@ -19,25 +19,24 @@
           "name": "name",
           "type": "varchar(256)",
           "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "CURRENT_TIMESTAMP"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
           "notNull": false
         },
-        "createdAt": {
-          "name": "createdAt",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "CURRENT_TIMESTAMP"
-        },
-        "updatedAt": {
-          "name": "updatedAt",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "CURRENT_TIMESTAMP"
-        },
-        "startTime": {
-          "name": "startTime",
-          "type": "timestamp with time zone",
+        "start_time": {
+          "name": "start_time",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": true
         },
@@ -47,29 +46,29 @@
           "primaryKey": false,
           "notNull": true
         },
-        "homeTeam": {
-          "name": "homeTeam",
+        "home_team": {
+          "name": "home_team",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": true
         },
-        "visitingTeam": {
-          "name": "visitingTeam",
+        "visiting_team": {
+          "name": "visiting_team",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": true
         },
-        "homeScore": {
-          "name": "homeScore",
+        "home_score": {
+          "name": "home_score",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         },
-        "visitingScore": {
-          "name": "visitingScore",
+        "visiting_score": {
+          "name": "visiting_score",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
         }
       },
       "indexes": {
