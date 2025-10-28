@@ -6,5 +6,5 @@ export async function createGame(game: NewGame) {
 }
 
 export async function getGames() {
-    return await db.select().from(games);
+  return await db.select().from(games);
 }

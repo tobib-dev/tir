@@ -53,15 +53,15 @@ const seedGames: Game[] = [
 ];
 
 export async function Games() {
-    for (const g of seedGames) {
-        await createGame({
-            name: g.name,
-            startTime: new Date(g.startTime),
-            location: g.location,
-            homeTeam: g.homeTeam,
-            visitingTeam: g.visitingTeam,
-            homeScore: g.homeScore,
-            visitingScore: g.visitingScore
-        });
-    }
+  for (const g of seedGames) {
+    await createGame({
+      name: g.name,
+      startTime: new Date(g.startTime),
+      location: g.location,
+      homeTeam: g.homeTeam,
+      visitingTeam: g.visitingTeam,
+      homeScore: g.homeScore,
+      visitingScore: g.visitingScore,
+    });
+  }
 }
