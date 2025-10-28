@@ -1,9 +1,8 @@
 import { getGames } from "tir/server/queries";
-import { Games } from "tir/api/games";
+import { SeedDatabase } from "tir/api/games";
 
-await Games();
+await SeedDatabase();
 const games = await getGames();
-//console.log(games)
 
 export default function HomePage() {
   return (

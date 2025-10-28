@@ -1,4 +1,4 @@
-import { createGame } from "tir/server/queries";
+import { createGame, getGames } from "tir/server/queries";
 
 export type Game = {
   id?: string;
@@ -52,6 +52,7 @@ const seedGames: Game[] = [
   },
 ];
 
+/*
 export async function Games() {
   for (const g of seedGames) {
     await createGame({
@@ -65,3 +66,27 @@ export async function Games() {
     });
   }
 }
+*/
+
+export async function SeedDatabase() {
+  const existingGames = await getGames();
+
+  if (existingGames.length === 0) {
+    console.log("Seeding database with games...");
+    await Promise.all(
+      seedGames.map((g) => 
+      createGame({
+        name: g.name,
+        startTime: new Date(g.startTime),
+        location: g.location,
+        homeTeam: g.homeTeam,
+        visitingTeam: g.visitingTeam,
+        homeScore: g.homeScore,
+        visitingScore: g.visitingScore,
+      }),),
+    );
+    console.log("Seeding complete.");
+  } else {
+    console.log("Games already exists in Database.")
+  }
+};
