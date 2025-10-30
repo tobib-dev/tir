@@ -56,24 +56,25 @@ export async function SeedDatabase() {
   const existingGames = await getUpcomingGames();
   const liveGames = await getLiveGames();
 
-  const games = [...existingGames, ...liveGames]
+  const games = [...existingGames, ...liveGames];
 
   if (games.length === 0) {
     console.log("Seeding database with games...");
     await Promise.all(
-      seedGames.map((g) => 
-      createGame({
-        name: g.name,
-        startTime: new Date(g.startTime),
-        location: g.location,
-        homeTeam: g.homeTeam,
-        visitingTeam: g.visitingTeam,
-        homeScore: g.homeScore,
-        visitingScore: g.visitingScore,
-      }),),
+      seedGames.map((g) =>
+        createGame({
+          name: g.name,
+          startTime: new Date(g.startTime),
+          location: g.location,
+          homeTeam: g.homeTeam,
+          visitingTeam: g.visitingTeam,
+          homeScore: g.homeScore,
+          visitingScore: g.visitingScore,
+        }),
+      ),
     );
     console.log("Seeding complete.");
   } else {
-    console.log("Games already exists in Database.")
+    console.log("Games already exists in Database.");
   }
-};
+}

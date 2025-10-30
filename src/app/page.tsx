@@ -15,8 +15,10 @@ export default function HomePage() {
             className="flex h-36 w-96 flex-col items-center rounded-md bg-stone-400/15 p-3 shadow-md"
           >
             <div className="relative w-full">
-              <div className="mb-1 text-lg font-semibold text-center">{g.name}</div>
-              <div className="text-sm absolute right-0 top-0 mb-1 font-normal text-red-500">
+              <div className="mb-1 text-center text-lg font-semibold">
+                {g.name}
+              </div>
+              <div className="absolute top-0 right-0 mb-1 text-sm font-normal text-red-500">
                 '
                 {(
                   (Date.now() - new Date(g.startTime).getTime()) /
