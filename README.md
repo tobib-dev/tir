@@ -4,7 +4,7 @@ This app was inspired from my time watching my fiance play Adult League Basketba
 
 ## To Do
 - [x] Setup DB
-- [ ] Setup Basic UI
+- [x] Setup Basic UI
 - [ ] Implement API Routes
 - [ ] Implement Auth w/ Clerk
 - [ ] Enable images / video upload w/ Uploadthing

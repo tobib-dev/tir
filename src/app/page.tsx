@@ -9,7 +9,7 @@ export default function HomePage() {
     <div className="container mx-auto p-4">
       <div className="flex flex-col items-center gap-4 p-2">
         {games.map((game) => (
-          <div key={game.id} className="flex flex-col items-center bg-blue-500/15 p-3 rounded-md shadow-md w-72 h-36">
+          <div key={game.id} className="flex flex-col items-center bg-blue-500/10 p-3 rounded-md shadow-md w-96 h-36">
             <div className="text-lg font-semibold mb-1">{game.name}</div>
             <div className="text-base">
               {game.homeScore} - {game.visitingScore}
