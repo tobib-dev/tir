@@ -1,4 +1,4 @@
-import { createGame, getGames } from "tir/server/queries";
+import { createGame, getLiveGames, getUpcomingGames } from "tir/server/queries";
 
 export type Game = {
   id?: string;
@@ -53,9 +53,12 @@ const seedGames: Game[] = [
 ];
 
 export async function SeedDatabase() {
-  const existingGames = await getGames();
+  const existingGames = await getUpcomingGames();
+  const liveGames = await getLiveGames();
 
-  if (existingGames.length === 0) {
+  const games = [...existingGames, ...liveGames]
+
+  if (games.length === 0) {
     console.log("Seeding database with games...");
     await Promise.all(
       seedGames.map((g) => 
