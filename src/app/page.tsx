@@ -19,7 +19,7 @@ export default function HomePage() {
                 {g.name}
               </div>
               <div className="absolute top-0 right-0 mb-1 text-sm font-normal text-red-500">
-                '
+                &apos;
                 {(
                   (Date.now() - new Date(g.startTime).getTime()) /
                   60000
