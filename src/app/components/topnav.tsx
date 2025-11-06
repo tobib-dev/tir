@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
+import { SignInButton, SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 
 export default function TopNav() {
   return (
@@ -44,6 +45,15 @@ export default function TopNav() {
             className="w-64 rounded-md border-gray-700/30 bg-gray-800/10 px-3 py-2 text-sm text-black placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
           />
           <Button>Search</Button>
+        </div>
+
+        <div className="ml-6 flex items-center">
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </div>
     </nav>
