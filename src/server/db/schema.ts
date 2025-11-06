@@ -40,3 +40,21 @@ export const games = createTable(
 );
 
 export type NewGame = typeof games.$inferInsert;
+
+export const teams = createTable(
+  "team",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: varchar("name", { length: 256 }).notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updated_at").$onUpdate(() => new Date()),
+    captain: varchar("captain", { length: 256 }).notNull(),
+  },
+  (ex) => ({
+    nameIndex: index("name_idx").on(ex.name),
+  }),
+);
+
+export type NewTeam = typeof teams.$inferInsert;
