@@ -35,6 +35,12 @@ export default function TopNav() {
             >
               Stats
             </a>
+            <a
+              href="#"
+              className="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700/30 hover:text-white"
+            >
+              Teams
+            </a>
           </div>
         </div>
 
