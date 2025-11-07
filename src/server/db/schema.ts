@@ -4,6 +4,7 @@
 import { sql } from "drizzle-orm";
 import {
   index,
+  uniqueIndex,
   pgTableCreator,
   uuid,
   varchar,
@@ -52,9 +53,8 @@ export const teams = createTable(
     updatedAt: timestamp("updated_at").$onUpdate(() => new Date()),
     captain: varchar("captain", { length: 256 }).notNull(),
   },
-  (ex) => ({
-    nameIndex: index("name_idx").on(ex.name),
-  }),
-);
+  (table) => [
+    uniqueIndex("team_name_idx").on(table.name),
+  ]);
 
 export type NewTeam = typeof teams.$inferInsert;

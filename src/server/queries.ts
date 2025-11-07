@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { type NewGame, games } from "./db/schema";
+import { type NewGame, type NewTeam, games, teams } from "./db/schema";
 import { sql, asc, gt, gte, and, lt } from "drizzle-orm";
 
 export async function createGame(game: NewGame) {
@@ -25,4 +25,12 @@ export async function getLiveGames() {
       ),
     )
     .orderBy(asc(games.startTime));
+}
+
+export async function createTeam(team: NewTeam) {
+  await db.insert(teams).values(team);
+}
+
+export async function getTeams() {
+  return await db.select().from(teams).orderBy(asc(teams.name));
 }
