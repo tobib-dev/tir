@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
 import { SignInButton, SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function TopNav() {
   return (
@@ -16,31 +17,31 @@ export default function TopNav() {
 
         <div className="flex flex-1 items-center justify-center p-2 sm:items-stretch sm:justify-start">
           <div className="flex space-x-4">
-            <a
-              href="#"
+            <Link
+              href="/games"
               aria-current="page"
               className="rounded-md bg-gray-800/30 px-3 py-2 text-sm font-medium"
             >
               Games
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/standings"
               className="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700/30 hover:text-white"
             >
               Standings
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/stats"
               className="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700/30 hover:text-white"
             >
               Stats
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              href="/teams"
               className="rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-700/30 hover:text-white"
             >
               Teams
-            </a>
+            </Link>
           </div>
         </div>
 
