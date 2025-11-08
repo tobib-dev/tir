@@ -53,8 +53,7 @@ export const teams = createTable(
     updatedAt: timestamp("updated_at").$onUpdate(() => new Date()),
     captain: varchar("captain", { length: 256 }).notNull(),
   },
-  (table) => [
-    uniqueIndex("team_name_idx").on(table.name),
-  ]);
+  (table) => [uniqueIndex("team_name_idx").on(table.name)],
+);
 
 export type NewTeam = typeof teams.$inferInsert;
