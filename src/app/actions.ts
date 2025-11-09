@@ -11,5 +11,5 @@ export async function registerTeam(formData: FormData) {
   }
 
   await createTeam({ name: teamName, captain: teamCaptain });
-  redirect("/");
+  redirect("/teams");
 }
