@@ -1,0 +1,1 @@
+ALTER TABLE "tir_team" RENAME COLUMN "logo" TO "logo_url";
