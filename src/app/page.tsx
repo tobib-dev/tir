@@ -1,7 +1,5 @@
 import { getUpcomingGames, getLiveGames } from "tir/server/queries";
-import { SeedDatabase } from "tir/api/games";
 
-await SeedDatabase();
 const uGames = await getUpcomingGames();
 const lGames = await getLiveGames();
 
