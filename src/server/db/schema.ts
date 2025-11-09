@@ -52,6 +52,7 @@ export const teams = createTable(
       .notNull(),
     updatedAt: timestamp("updated_at").$onUpdate(() => new Date()),
     captain: varchar("captain", { length: 256 }).notNull(),
+    logo: varchar("logo", { length: 256 }),
   },
   (table) => [uniqueIndex("team_name_idx").on(table.name)],
 );

@@ -1,0 +1,1 @@
+ALTER TABLE "tir_team" ALTER COLUMN "logo" DROP NOT NULL;

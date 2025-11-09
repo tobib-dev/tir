@@ -1,0 +1,1 @@
+ALTER TABLE "tir_team" ADD COLUMN "logo" varchar(256) NOT NULL;

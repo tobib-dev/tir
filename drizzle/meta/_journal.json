@@ -15,6 +15,20 @@
       "when": 1762542343262,
       "tag": "0001_mean_the_spike",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1762707237735,
+      "tag": "0002_magical_enchantress",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762707293087,
+      "tag": "0003_needy_lady_vermin",
+      "breakpoints": true
     }
   ]
 }
