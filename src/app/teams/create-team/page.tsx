@@ -51,7 +51,9 @@ export default function CreateTeam() {
               </div>
               <Button
                 variant="destructive"
-                className="hover:bg-destructive/90 absolute top-2 right-2 rounded-full p-1 text-xs text-white"
+                size="icon"
+                onClick={() => setImageUrl(null)}
+                className="absolute -top-2 -right-2 h-6 w-6 rounded-full"
               >
                 X
               </Button>
@@ -60,15 +62,26 @@ export default function CreateTeam() {
             <UploadDropzone
               endpoint="imageUploader"
               onClientUploadComplete={(res) => {
-                if (res && res.length > 0) {
-                  setImageUrl(res[0].url);
-                  alert("Upload Completed");
+                if (!res || res.length === 0) {
+                  alert("Upload failed: No files returned.");
+                  return;
                 }
+
+                if (!res[0]) {
+                  alert(
+                    "Upload failed: URL not found in UploadThing response.",
+                  );
+                  return;
+                }
+
+                setImageUrl(res[0].ufsUrl);
+                alert("Upload completed successfully!");
               }}
               onUploadError={(error) => {
                 console.error("Upload Error:", error);
                 alert(`ERROR! ${error.message}`);
               }}
+              className="ut-label:text-primary ut-button:bg-primary ut-button:ut-readying:bg-primary/50 mt-2"
             />
           )}
           <input type="hidden" name="teamLogo" value={imageUrl ?? ""} />
