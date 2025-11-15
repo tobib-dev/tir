@@ -87,7 +87,11 @@ export default function CreateTeam() {
           <input type="hidden" name="teamLogoUrl" value={imageUrl ?? ""} />
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button
+          type="submit"
+          className="w-full"
+          onClick={() => toast.success("Team successfully created")}
+        >
           Register Team
         </Button>
       </form>
