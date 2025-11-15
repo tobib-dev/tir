@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Button } from "tir/components/ui/button";
 import { Input } from "tir/components/ui/input";
 import { Label } from "tir/components/ui/label";
+import { toast } from "sonner";
+
 import { registerTeam } from "tir/app/actions";
 import { UploadDropzone } from "src/utils/uploadthing";
 
@@ -64,20 +66,20 @@ export default function CreateTeam() {
               endpoint="imageUploader"
               onClientUploadComplete={(res) => {
                 if (!res || res.length === 0) {
-                  alert("Upload failed: No files returned.");
+                  toast.warning("Upload failed: No files returned.");
                   return;
                 }
 
                 if (!res[0]?.ufsUrl) {
-                  alert("Upload failed: URL not found in response.");
+                  toast.warning("Upload failed: URL not found in response.");
                   return;
                 }
 
                 setImageUrl(res[0].ufsUrl);
-                alert("Upload completed successfully");
+                toast.success("Upload completed successfully");
               }}
               onUploadError={(error: Error) => {
-                alert(`ERROR: ${error.message}`);
+                toast.error(`Upload failed: ${error.message}`);
               }}
               className="ut-label:text-primary ut-button:bg-primary ut-button:ut-readying:bg-primary/50 mt-2"
             />

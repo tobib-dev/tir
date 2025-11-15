@@ -1,6 +1,7 @@
 import "tir/styles/globals.css";
 import TopNav from "./components/topnav";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "tir/components/ui/sonner";
 
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
@@ -25,6 +26,7 @@ export default function RootLayout({
         <body>
           <TopNav />
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>
