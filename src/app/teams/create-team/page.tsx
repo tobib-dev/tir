@@ -40,8 +40,8 @@ export default function CreateTeam() {
         <div className="grid w-full items-center gap-1.5">
           <Label>Team Logo</Label>
           {imageUrl ? (
-            <div className="relative mt-2">
-              <div className="relative aspect-square w-32 overflow-hidden rounded-lg border">
+            <div className="relative mx-auto mt-2 w-32">
+              <div className="aspect-square overflow-hidden rounded-lg border">
                 <Image
                   src={imageUrl}
                   alt="Team logo preview"
@@ -56,7 +56,7 @@ export default function CreateTeam() {
                 onClick={() => setImageUrl(null)}
                 className="absolute -top-2 -right-2 h-6 w-6 rounded-full"
               >
-                X
+                x
               </Button>
             </div>
           ) : (

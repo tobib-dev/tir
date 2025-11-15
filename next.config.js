@@ -6,9 +6,9 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
-    images: {
-        remotePatterns: [{ hostname: "f2miqs9qwi.ufs.sh" }],
-    },
+  images: {
+    remotePatterns: [{ hostname: "f2miqs9qwi.ufs.sh" }],
+  },
 };
 
 export default config;
