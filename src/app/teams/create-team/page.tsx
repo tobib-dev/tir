@@ -84,7 +84,12 @@ export default function CreateTeam() {
               className="ut-label:text-primary ut-button:bg-primary ut-button:ut-readying:bg-primary/50 mt-2"
             />
           )}
-          <input type="hidden" name="teamLogoUrl" value={imageUrl ?? ""} />
+          <input
+            type="hidden"
+            id="teamLogoUrl"
+            name="teamLogoUrl"
+            value={imageUrl ?? ""}
+          />
         </div>
 
         <Button

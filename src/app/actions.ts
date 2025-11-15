@@ -5,12 +5,16 @@ import { createTeam } from "tir/server/queries";
 export async function registerTeam(formData: FormData) {
   const teamName = formData.get("teamName") as string;
   const teamCaptain = formData.get("teamCaptain") as string;
-  const teamLogo = formData.get("teamLogo") as string;
+  const teamLogoUrl = formData.get("teamLogoUrl") as string;
 
   if (!teamName || !teamCaptain) {
     return;
   }
 
-  await createTeam({ name: teamName, captain: teamCaptain, logoURL: teamLogo });
+  await createTeam({
+    name: teamName,
+    captain: teamCaptain,
+    logoURL: teamLogoUrl,
+  });
   redirect("/teams");
 }
