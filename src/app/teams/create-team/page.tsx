@@ -42,15 +42,47 @@ export default function CreateTeam() {
           {imageUrl ? (
             <div className="relative mt-2">
               <div className="relative aspect-square w-32 overflow-hidden rounded-lg border">
-                <Image src={imageUrl} alt="Team logo preview" fill className="object-cover" />
+                <Image
+                  src={imageUrl}
+                  alt="Team logo preview"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <Button type="button" variant="destructive" size="icon" onClick={() => setImageUrl(null)} className="absolute -right-2 -top-2 h-6 w-6 rounded-full">
+              <Button
+                type="button"
+                variant="destructive"
+                size="icon"
+                onClick={() => setImageUrl(null)}
+                className="absolute -top-2 -right-2 h-6 w-6 rounded-full"
+              >
                 X
               </Button>
             </div>
           ) : (
-            <UploadButton endpoint="imageUploader" />
+            <UploadDropzone
+              endpoint="imageUploader"
+              onClientUploadComplete={(res) => {
+                if (!res || res.length === 0) {
+                  alert("Upload failed: No files returned.");
+                  return;
+                }
+
+                if (!res[0]?.ufsUrl) {
+                  alert("Upload failed: URL not found in response.");
+                  return;
+                }
+
+                setImageUrl(res[0].ufsUrl);
+                alert("Upload completed successfully");
+              }}
+              onUploadError={(error: Error) => {
+                alert(`ERROR: ${error.message}`);
+              }}
+              className="ut-label:text-primary ut-button:bg-primary ut-button:ut-readying:bg-primary/50 mt-2"
+            />
           )}
+          <input type="hidden" name="teamLogoUrl" value={imageUrl ?? ""} />
         </div>
 
         <Button type="submit" className="w-full">
