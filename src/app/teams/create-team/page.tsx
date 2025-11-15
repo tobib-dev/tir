@@ -6,7 +6,7 @@ import { Button } from "tir/components/ui/button";
 import { Input } from "tir/components/ui/input";
 import { Label } from "tir/components/ui/label";
 import { registerTeam } from "tir/app/actions";
-import { UploadButton, UploadDropzone } from "src/utils/uploadthing";
+import { UploadDropzone } from "src/utils/uploadthing";
 
 export default function CreateTeam() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
